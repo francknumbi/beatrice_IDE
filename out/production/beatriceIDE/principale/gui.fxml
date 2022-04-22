@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="principale.Controller">
+
+    <children>
+        <MenuBar>
+            <menus>
+                <Menu mnemonicParsing="false" text="Fichier">
+                    <items>
+                        <MenuItem fx:id="btn_creerFichier" mnemonicParsing="false" onAction="#onClick_btn_creerFichier" text="Nouveau" />
+                        <MenuItem mnemonicParsing="false" text="Ouvrir" />
+                        <MenuItem fx:id="btn_Enregistrer" mnemonicParsing="false" onAction="#onClick_Enregistrer" text="Enregistrer" />
+                        <MenuItem fx:id="btn_Importer" mnemonicParsing="false" onAction="#onClick_Importer" text="Importer" />
+                        <MenuItem fx:id="btn_Quitter" mnemonicParsing="false" onAction="#onClick_Quitter" text="Quitter" />
+                    </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Edition">
+                    <items>
+                        <MenuItem fx:id="btn_Copier" mnemonicParsing="false" onAction="#onClick_btn_Copier" text="Copier" />
+                        <MenuItem mnemonicParsing="false" text="Coller" />
+                        <MenuItem mnemonicParsing="false" text="Effacer" />
+                        <MenuItem fx:id="btn_SelectionnerCopier" mnemonicParsing="false" onAction="#onClick_SelectionnerCopier" text="Selectionner Copier" />
+                    </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Affichage">
+                    <items>
+                        <MenuItem mnemonicParsing="false" text="Apparance" />
+                        <MenuItem mnemonicParsing="false" text="Outils" />
+                        <MenuItem mnemonicParsing="false" />
+                    </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Aide">
+                    <items>
+                        <MenuItem mnemonicParsing="false" text="Documentation" />
+                    </items>
+                </Menu>
+            </menus>
+        </MenuBar>
+        <ToolBar stylesheets="@../../css/style.css">
+            <items>
+                <Button mnemonicParsing="false" prefHeight="27.0" prefWidth="36.0">
+                    <graphic>
+                        <ImageView fitHeight="25.0" fitWidth="23.0" onMouseClicked="#onClick_Quitter" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../icons/ajouter-un-document-dark.png" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                </Button>
+                <Button mnemonicParsing="false" prefHeight="7.0" prefWidth="50.0">
+                    <graphic>
+                        <ImageView fitHeight="22.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../icons/dossier.png" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                </Button>
+                <Button fx:id="saveAs" mnemonicParsing="false" prefHeight="24.0" prefWidth="31.0" text="">
+                    <graphic>
+                        <ImageView fitHeight="22.0" fitWidth="23.0" mouseTransparent="true" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../icons/annuler.png" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                </Button>
+                <Button fx:id="profile" mnemonicParsing="false" prefHeight="25.0" prefWidth="29.0" text="">
+                    <graphic>
+                        <ImageView fitHeight="22.0" fitWidth="22.0" mouseTransparent="true" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../icons/refaire.png" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                </Button>
+                <Button mnemonicParsing="false">
+                    <graphic>
+                        <ImageView fitHeight="21.0" fitWidth="21.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../icons/jouer-rond.png" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                </Button>
+                <Button mnemonicParsing="false" prefHeight="32.0" prefWidth="36.0">
+                    <graphic>
+                        <ImageView fitHeight="20.0" fitWidth="42.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../icons/arreter.png" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                </Button>
+                <Button mnemonicParsing="false" prefHeight="19.0" prefWidth="29.0" style="-fx-padding-left: 410;" stylesheets="@../../css/style.css">
+                    <graphic>
+                        <ImageView fitHeight="23.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../icons/reglages.png" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                </Button>
+            </items>
+        </ToolBar>
+        <HBox fx:id="content" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
+            <children>
+                <SplitPane fx:id="fileDivider" dividerPositions="0.27424749163879597" focusTraversable="true" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" HBox.hgrow="ALWAYS">
+                    <items>
+                        <TreeView fx:id="fileView" prefHeight="200.0" prefWidth="200.0" />
+                        <SplitPane fx:id="consoleDivider" dividerPositions="0.6042296072507553" focusTraversable="true" orientation="VERTICAL" prefHeight="-1.0" prefWidth="-1.0">
+                            <items>
+                                <TabPane id="tabbedEditor" fx:id="tabbedEditors" prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="ALL_TABS">
+                                    <tabs>
+                                        
+                                        <Tab fx:id="untitled"  closable="true" text="Untitled">
+                                            <content>
+                                                <TextArea prefWidth="200.0" wrapText="true" />
+                                            </content>
+                                        </Tab>
+                                    </tabs>
+                                </TabPane>
+                                <TabPane fx:id="tabbedConsoles" prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE">
+                                    <tabs>
+                                        <Tab fx:id="console" text="Console">
+                                            <content>
+                                                <TextArea prefWidth="200.0" text="java.lang.NullPointerException&#10;    at Maze.getNumRandOccupants(Maze.java:118)&#10;    at P4TestDriver.testMaze(P4TestDriver.java:995)&#10;    at P4TestDriver.main(P4TestDriver.java:116)" wrapText="true" />
+                                            </content>
+                                        </Tab>
+                                        <Tab fx:id="log" text="Log">
+                                            <content>
+                                                <TextArea prefWidth="200.0" wrapText="true" />
+                                            </content>
+                                        </Tab>
+                                    </tabs>
+                                </TabPane>
+                            </items>
+                        </SplitPane>
+                    </items>
+                </SplitPane>
+            </children>
+        </HBox>
+    </children>
+
+</VBox>
