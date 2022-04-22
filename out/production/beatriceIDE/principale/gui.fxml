@@ -118,7 +118,6 @@
                             <items>
                                 <TabPane id="tabbedEditor" fx:id="tabbedEditors" prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="ALL_TABS">
                                     <tabs>
-                                        
                                         <Tab fx:id="untitled"  closable="true" text="Untitled">
                                             <content>
                                                 <TextArea prefWidth="200.0" wrapText="true" />

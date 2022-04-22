@@ -81,9 +81,9 @@ public class Controller{
     public void onClick_Enregistrer(ActionEvent e) throws IOException {
 
         File repertoireSelectionner=null;
-
         FileChooser repertoireChoisi = new FileChooser();
         String nomNouveauFichier = tabbedEditors.getSelectionModel().getSelectedItem().getText();
+
         repertoireChoisi.setInitialFileName(nomNouveauFichier);
 
         if(new File(new File("").getAbsolutePath()+"/"+nomNouveauFichier).exists()){
@@ -102,6 +102,8 @@ public class Controller{
                     new FileChooser.ExtensionFilter("fichiers algo (*.algo)", "*.algo");
             repertoireChoisi.getExtensionFilters().add(fichierExtension);
             repertoireSelectionner = repertoireChoisi.showSaveDialog(null);
+
+            tabbedEditors.getSelectionModel().getSelectedItem().setText(repertoireSelectionner.getName());
             code_Source = (TextArea) tabbedEditors.getSelectionModel().getSelectedItem().getContent();
             if(repertoireSelectionner!=null){
 

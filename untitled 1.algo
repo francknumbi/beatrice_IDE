@@ -1,5 +1,0 @@
-algorithme 'nomAlgorithme' 
-
-debut
-	ecrire "hello word"
-fin
